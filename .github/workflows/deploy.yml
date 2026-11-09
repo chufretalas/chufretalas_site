@@ -20,10 +20,12 @@ jobs:
           script: |
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            nvm use 26
+            nvm use 26 --silent
 
             cd ~/chufretalas_site
-            git pull origin main
-            npm install
-            npm run build
+            git checkout -q main
+            git pull -q origin main
+            npm ci --no-audit --no-fund --loglevel=error
+            npm run build --silent
             sudo systemctl restart chufretalas_site.service
+            echo "Deploy concluído com sucesso!"

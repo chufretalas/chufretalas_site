@@ -3,7 +3,7 @@
 </script>
 
 <footer>
-    <span>Chufretalas - 2024</span>
+    <span>Chufretalas - 2026</span>
 </footer>
 
 <style>
